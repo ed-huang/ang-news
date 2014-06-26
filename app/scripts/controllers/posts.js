@@ -1,14 +1,13 @@
 'use strict';
 
 app.controller('PostCtrl', function ($scope, Post) {
-	$scope.posts = Post.get();
+	$scope.posts = Post.all;
 	$scope.post = {
 		url: 'http://', 
 		title: ''
 	};
 	$scope.submitPosts = function () {
-		Post.save($scope.post, function(ref) {
-			$scope.posts[ref.name] = $scope.post;
+		Post.create($scope.post).then( function() {
 			$scope.post = {
 				url: 'http://',
 				title: ''
@@ -17,9 +16,7 @@ app.controller('PostCtrl', function ($scope, Post) {
 	};
 	
 	$scope.deletePosts = function (postId) {
-		Post.delete({id: postId}, function () {
-				delete $scope.posts[postId];
-			});
+		Post.delete(postId);
 	};
 	
 });

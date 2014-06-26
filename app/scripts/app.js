@@ -1,3 +1,4 @@
+/* global app:true */
 'use strict';
 
 /**
@@ -14,7 +15,9 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'firebase'
   ])
+  .constant('FIREBASE_URL', 'https://dazzling-fire-7482.firebaseio.com/')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
