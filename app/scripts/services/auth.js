@@ -1,11 +1,11 @@
 'use strict';
 
-app.factory('Post', function ($firebase, FIREBASE_URL) {
-	var ref = new Firebase(FIREBASE_URL, + 'posts');
+app.factory('Auth', function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
+	var ref = new Firebase(FIREBASE_URL);
 	
-	var posts = $firebase(ref);
+	var auth = $firebaseSimpleLogin(ref);
 
-	var Post = {
+	var Auth = {
 		all: posts,
 		create: function (post) {
 			return posts.$add(post);

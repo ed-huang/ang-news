@@ -1,4 +1,4 @@
-/* global app:true */
+/*  global app:true */
 'use strict';
 
 /**
@@ -24,9 +24,9 @@ var app = angular
         templateUrl: 'views/posts.html',
         controller: 'PostCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/posts/:postId', {
+        templateUrl: 'views/showpost.html',
+        controller: 'PostViewCtrl'
       })
       .otherwise({
         redirectTo: '/'

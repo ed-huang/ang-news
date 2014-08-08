@@ -1,5 +1,7 @@
 'use strict'
 
 app.controller('PostViewCtrl', function ($scope, $routeParams, Post) {
-$scope.post = Post.find($routeParams.PostId);
+	console.log("post view controller");
+	$scope.post = Post.find($routeParams.postId);
+
 });
